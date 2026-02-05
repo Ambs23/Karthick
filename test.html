@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      /* Heart background embedded or tiled */
+      background-color: #fff0f5;
+      background-image: url("data:image/png;base64,REPLACE_WITH_YOUR_HEART_IMAGE_BASE64");
+      background-repeat: repeat;
+      background-size: 80px 80px;
+    }
+    h1 {
+      color: #d6336c;
+      background: rgba(255,255,255,0.7);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+    #no {
+      background-color: #6c757d;
+      color: white;
+      position: absolute;
+    }
+    /* Fullscreen message style */
+    .fullscreen-message {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff4d6d;
+      color: white;
+      font-size: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my Valentine Karthick?</h1>
+  <button id="yes" class="btn">Yes 💖</button>
+  <button id="no" class="btn">No 😅</button>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    // Place "No" button initially
+    noBtn.style.left = "50%";
+    noBtn.style.top = "200px";
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+      const y = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      // Replace entire screen with message
+      document.body.innerHTML = '<div class="fullscreen-message">You are already piggy 🐷❤️</div>';
+    });
+  </script>
+</body>
+</html>
